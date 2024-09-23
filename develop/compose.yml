@@ -1,0 +1,15 @@
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # user: ${DEV_CONTAINER_UID}:${DEV_CONTAINER_GID}
+    container_name: nuxt3-text
+
+    command: sleep infinity
+
+    volumes:
+      - ./samples/:/work/samples
+      - .dev/.vscode-server:/root/.vscode-server
+      # - /etc/passwd:/etc/passwd:ro
+      # - /etc/group:/etc/group:ro
