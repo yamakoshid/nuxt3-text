@@ -1,7 +1,7 @@
 services:
   dev:
     build:
-      context: .
+      context: ./dev
       dockerfile: Dockerfile
     # user: ${DEV_CONTAINER_UID}:${DEV_CONTAINER_GID}
     # command: sleep infinity
