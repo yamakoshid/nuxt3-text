@@ -1,5 +1,10 @@
 .env
-.dev
+
+# Empty Dir for store .vscode-server
+.dev/*
+!.dev/.vscode-server/
+.dev/.vscode-server/*
+!.dev/.vscode-server/.gitkeep
 
 samples
 samples.zip

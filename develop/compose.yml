@@ -3,11 +3,12 @@ services:
     build:
       context: ./dev
       dockerfile: Dockerfile
-    # user: ${DEV_CONTAINER_UID}:${DEV_CONTAINER_GID}
+      args:
+        UID: ${DEV_CONTAINER_UID}
+        GID: ${DEV_CONTAINER_GID}
     # command: sleep infinity
-
     volumes:
-      - ./work/:/work/
-      - .dev/.vscode-server:/root/.vscode-server
+      - ./work/:/home/ubuntu/work
+      - .dev/.vscode-server:/home/ubuntu/.vscode-server
       # - /etc/passwd:/etc/passwd:ro
       # - /etc/group:/etc/group:ro

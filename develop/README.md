@@ -98,6 +98,14 @@ bashスクリプトだと、以下でできるらしい。
         done
         ```
 
+## Dockerでディスク解放
+
+- https://qiita.com/manrikitada/items/501a234d7fc30018445c
+
+このあたりが必要かも。
+- docker builder prune
+- docker image prune
+
 ### 未検証のメモ書き
 
 - gosuとか使えば、コンテナすぐ停止できるようにできたりする?
