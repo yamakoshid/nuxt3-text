@@ -23,9 +23,28 @@ https://www.docker.com/ja-jp/blog/understanding-the-docker-user-instruction/
   - A. usernameを一つに固定。UIDをかえる(/etc/passwdをよまない?)
   - B. username, UIDをそのまま(/etc/passwdを読む)
 
-- 現時点のDockerfileだと、ライブラリ系がrootでしか使えない。
+- ~~現時点のDockerfileだと、ライブラリ系がrootでしか使えない。~~
   - aptでインストール権限を持っているのがrootだけ。
+  - `root`で初めにaptでインストールしたら、多分一般ユーザーも使用できる。
 
+
+- ubuntuイメージには、デフォルト`ubuntu`ユーザが、`UID: 1000`で存在している。
+
+## Ubuntuコンテナでルートになる
+
+ubuntuコンテナには、セキュリティ上の理由から、`sudo`は
+インストールされていない。
+
+`docker container`コマンド実行時に、`-u root`とすれば、
+`root`でコマンドを実行できる。
+
+- [How to send a password to `sudo` from a Dockerfile(Stack overflow)](https://stackoverflow.com/questions/44630072/how-to-send-a-password-to-sudo-from-a-dockerfile)
+
+例: 
+
+```
+docker compose exec -u root dev /bin/bash
+```
 
 ## Docker composeでコンテナをすぐ停止する方法について
 
