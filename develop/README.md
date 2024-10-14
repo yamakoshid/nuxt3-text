@@ -24,6 +24,7 @@ https://www.docker.com/ja-jp/blog/understanding-the-docker-user-instruction/
   - B. username, UIDをそのまま(/etc/passwdを読む)
 
 - 現時点のDockerfileだと、ライブラリ系がrootでしか使えない。
+  - aptでインストール権限を持っているのがrootだけ。
 
 
 ## Docker composeでコンテナをすぐ停止する方法について
@@ -35,9 +36,9 @@ docker compose stopなどを実行すると、SIGTERMがコンテナの`PID 1`�
 
 bashスクリプトだと、以下でできるらしい。
 
-- DockerのFAQのコンテナすぐ停止できない件
-  - https://docs.docker.com/compose/support-and-feedback/faq/#:~:text=The%20docker%20compose%20stop%20command%20attempts%20to%20stop,shutting%20down%20when%20they%20receive%20the%20SIGTERM%20signal.
-    - https://medium.com/@gchudnov/trapping-signals-in-docker-containers-7a57fdda7d86
+- DockerのFAQ, docker composeでコンテナすぐ停止できない件についての記事
+  - [Why do my services take 10 seconds to recreate or stop?](https://docs.docker.com/compose/support-and-feedback/faq/#why-do-my-services-take-10-seconds-to-recreate-or-stop)
+    - [Trapping signals in Docker containers](https://medium.com/@gchudnov/trapping-signals-in-docker-containers-7a57fdda7d86)
   
       - bashの場合、次のようなシグナルハンドラを定義したスクリプトを用意するとよいらしい。
     
@@ -78,8 +79,7 @@ bashスクリプトだと、以下でできるらしい。
         done
         ```
 
+### 未検証のメモ書き
 
-
-### gosuとか使えば、コンテナすぐ停止できるようにできたりする?
-
-https://docs.docker.jp/v1.11/engine/reference/builder.html
+- gosuとか使えば、コンテナすぐ停止できるようにできたりする?
+  - https://docs.docker.jp/v1.11/engine/reference/builder.html
