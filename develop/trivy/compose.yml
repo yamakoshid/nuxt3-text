@@ -1,0 +1,10 @@
+services:
+  trivy:
+    image: aquasec/trivy:latest
+  
+    # dood(docker-outside-of-docker)
+    # Ref:
+    #   - https://qiita.com/t_katsumura/items/d5be6afadd6ec6545a9d
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    entrypoint: ["sleep", "infinity"]
