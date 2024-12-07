@@ -31,13 +31,12 @@ USER ubuntu
 # Set the workdir
 WORKDIR /home/ubuntu/work
 
-
-#-- nodejs install
+#-- nodejs install to user home
 #   Ref: https://qiita.com/suzuk12345/items/652f19de4c92c58d055d
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 RUN export NVM_DIR="$HOME/.nvm" && \
     . $NVM_DIR/nvm.sh && \
-    nvm install --lts
+    nvm install --lts/
 
 #-- persist container
 COPY ./bin/docker-entrypoint.sh /

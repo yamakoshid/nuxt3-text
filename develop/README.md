@@ -27,7 +27,6 @@ https://www.docker.com/ja-jp/blog/understanding-the-docker-user-instruction/
   - aptでインストール権限を持っているのがrootだけ。
   - `root`で初めにaptでインストールしたら、多分一般ユーザーも使用できる。
 
-
 - ubuntuイメージには、デフォルト`ubuntu`ユーザが、`UID: 1000`で存在している。
 
 ## Ubuntuコンテナでルートになる
